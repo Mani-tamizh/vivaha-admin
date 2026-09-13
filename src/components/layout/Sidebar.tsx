@@ -1,12 +1,5 @@
 import { NavLink } from "react-router-dom";
-import {
-  LayoutDashboard,
-  Users,
-  ShoppingCart,
-  Settings,
-  Package,
-  X,
-} from "lucide-react";
+import { LayoutDashboard, X } from "lucide-react";
 import { cn } from "../../lib/utils";
 import { Button } from "../ui/button";
 
