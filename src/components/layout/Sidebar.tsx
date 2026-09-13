@@ -1,5 +1,8 @@
 import { NavLink } from "react-router-dom";
-import { LayoutDashboard, X } from "lucide-react";
+import {
+  LayoutDashboard,
+  X,
+} from "lucide-react";
 import { cn } from "../../lib/utils";
 import { Button } from "../ui/button";
 
