@@ -1,14 +1,14 @@
-import axios, { InternalAxiosRequestConfig, AxiosResponse } from 'axios';
+import axios, { InternalAxiosRequestConfig, AxiosResponse } from "axios";
 
 export const apiClient = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api',
+  baseURL: import.meta.env.VITE_API_URL || "https://api.vivahamatri.com/api",
   headers: {
-    'Content-Type': 'application/json',
+    "Content-Type": "application/json",
   },
 });
 
 apiClient.interceptors.request.use((config: InternalAxiosRequestConfig) => {
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem("token");
   if (token && config.headers) {
     config.headers.Authorization = `Bearer ${token}`;
   }
@@ -19,9 +19,9 @@ apiClient.interceptors.response.use(
   (response: AxiosResponse) => response,
   (error: any) => {
     if (error.response?.status === 401) {
-      localStorage.removeItem('token');
-      window.location.href = '/login';
+      localStorage.removeItem("token");
+      window.location.href = "/login";
     }
     return Promise.reject(error);
-  }
+  },
 );
